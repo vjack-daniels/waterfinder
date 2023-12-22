@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA Map App</title>
+    <link rel="stylesheet" type="text/css" href="mapstyles.css">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <div class="header-container">
+        <!-- Dropdown -->
+        <div class="dropdown-container">
+            <label for="locations-dropdown">Select a Water Source:</label>
+            <select id="locations-dropdown">
+            </select>
+        </div>
+        <div id="info-window" class="info-window">
+            <p>Overall Review: <span id="avg-review">N/A</span>
+            || Water Reliability: <span id="water-reliability">N/A</span>
+            || Distance from you: <span id="distance">N/A</span></p>
+        </div>
+        <div id="reviews-window" class="reviews-window">
+            <h3>Reviews:</h3>
+            <ul id="reviews-list">
+                <!-- Reviews will be populated by JavaScript -->
+            </ul>
+        </div>
+        <!-- Hamburger menu -->
+        <button id="submit-review-button" class="submit-review-button">Submit a Review</button>
+
+        <!-- Modal/Review Submission Form -->
+        <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="reviewForm">
+            <label for="rating">Rating:</label><br>
+            <input type="number" id="rating" name="rating" min="1" max="5" required><br>
+            <label for="content">Review:</label><br>
+            <textarea id="content" name="content" required></textarea><br>
+            <input type="submit" value="Submit">
+            </form>
+        </div>
+        </div>
+    </div>
+    <div id="map"></div>
+    <script src="mapapp.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5KkKW8zrIbwXAwcJbgWgk5iEEgoeH8lM&callback=initMap" async defer></script>
+</html>
